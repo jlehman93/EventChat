@@ -36,7 +36,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     ListView eventListView;
     ArrayList<String> eventList;
     ArrayList<String> categoryList;
-    ArrayAdapter<String> aa; //for events list
+    ArrayList<String> catList;
+    HomeEventAdapter aa; //for events list
     final Context context = this;
     int eventInt = -1;
     String user = "";
@@ -47,6 +48,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         eventListView = (ListView)findViewById(R.id.listItems);
         eventList = new ArrayList<String>();
+        catList = new ArrayList<String>();
         //in reality, get this stuff via web request
         ParseQuery<ParseObject> query = ParseQuery.getQuery("eventObject");
         //query.whereEqualTo("category", 0); //get things from a specific category
@@ -58,7 +60,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     {
                         Log.v("TEST",returnedEventList.get(k).getString("name"));
                         Log.v("TEST",returnedEventList.get(k).getString("location"));
+                        Log.v("Test","" + returnedEventList.get(k).getInt("category"));
                         eventList.add(returnedEventList.get(k).getString("name")+"\n"+returnedEventList.get(k).getString("location")+" - ");
+                        catList.add(""+ returnedEventList.get(k).getInt("category"));
                     }
                     //List<String> newEventList = databaseHandler.getItems();
                     //aa.clear();
@@ -82,7 +86,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         eventList.add("Jazz Concert\nBo Diddley - 8PM");
         eventList.add("Florida Gators\nOConnel Center - 9PM");
         Log.v("TEST","in array");
-        aa = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,eventList);
+        aa = new HomeEventAdapter(this,android.R.layout.simple_list_item_1,eventList);
+        aa.setCat(catList);
         eventListView.setAdapter(aa);
         categoryList = new ArrayList<String>(Arrays.asList("General", "Live Music", "Sports"));
 
