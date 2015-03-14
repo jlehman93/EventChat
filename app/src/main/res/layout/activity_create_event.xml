@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,17 +6,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#D90B00">
-    <ImageView
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/event_name"
+            android:gravity="center_horizontal"/>
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Event Name"
+            />
+        </RelativeLayout>
 
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Event Name"
-        android:src="@mipmap/event_name"/>
     <Spinner
         android:id="@+id/categories"
         android:layout_width="fill_parent"
@@ -65,7 +67,4 @@
 
 
 </LinearLayout>
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
