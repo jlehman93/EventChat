@@ -143,7 +143,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
 
     public void showEventCategories(View v) {
-        Log.v("TEST", "put popup here");
+        Intent makeIntent = new Intent(this,EventCategories.class);
+        startActivity(makeIntent);
 
         //may use dialog, but may quit and use intents
     }
