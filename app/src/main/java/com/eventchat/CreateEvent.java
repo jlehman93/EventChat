@@ -79,4 +79,10 @@ public class CreateEvent extends ActionBarActivity implements TimePickerDialog.O
     public void onNothingSelected(AdapterView<?> parent) {
         //do nothing
     }
+
+    public void makeEvent(View view) {
+        //do web request
+        Intent returnIntent = new Intent(this,MainActivity.class);
+        startActivity(returnIntent);
+    }
 }

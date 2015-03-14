@@ -12,21 +12,24 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class MainActivity extends ActionBarActivity  {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
     ListView eventListView;
     ArrayList<String> eventList;
     ArrayList<String> categoryList;
     ArrayAdapter<String> aa; //for events list
     final Context context = this;
+    int eventInt = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,7 @@ public class MainActivity extends ActionBarActivity  {
         eventList.add("Florida Gators\nOConnel Center - 9PM");
         aa = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,eventList);
         eventListView.setAdapter(aa);
-        categoryList = new ArrayList<>(Arrays.asList("General", "Live Music", "Sports"));
+        categoryList = new ArrayList<String>(Arrays.asList("General", "Live Music", "Sports"));
 
 
 
@@ -69,7 +72,18 @@ public class MainActivity extends ActionBarActivity  {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onClick(View v) {
+        //trying to handle clicking on list
+        eventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
 
+                eventInt = position;
+                Toast.makeText(getApplicationContext(),
+                        eventList.get(position) + " selected", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     public void showEventCategories(View v) {
         Log.v("TEST", "put popup here");
