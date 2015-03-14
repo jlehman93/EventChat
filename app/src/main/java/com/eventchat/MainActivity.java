@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     //List<String> newEventList = databaseHandler.getItems();
                     //aa.clear();
                     //aa.addAll(eventList);
-                    aa.notifyDataSetChanged();
+                    //aa.notifyDataSetChanged();
                     //aa = new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,eventList);
                     //eventListView.setAdapter(aa);
 
