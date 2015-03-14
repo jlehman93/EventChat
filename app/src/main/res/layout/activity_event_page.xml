@@ -6,6 +6,67 @@
     android:orientation="vertical"
     android:background="#D90B00">
 
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/fourth_july"
+        android:gravity="left"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/loc"
+        android:layout_alignEnd="@+id/loc" />
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/party"
+        android:gravity="left"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/loc"
+        android:layout_alignEnd="@+id/loc" />
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/example_description"
+        android:gravity="left"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/loc"
+        android:layout_alignEnd="@+id/loc" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/general"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/example_time"
+            android:onClick="gogeneral"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:id="@+id/general"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/example_date"
+            android:onClick="gogeneral"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <ImageView
+            android:id="@+id/general"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/example_location"
+            android:onClick="gogeneral"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/general"
+            android:layout_toStartOf="@+id/general" />
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/name"
@@ -13,7 +74,8 @@
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:gravity="center_horizontal"
-        android:background="#FFFFFF"/>
+        android:background="#FFFFFF"
+        android:hint="Comments"/>
     <TextView
         android:id="@+id/categories"
         android:layout_width="fill_parent"
