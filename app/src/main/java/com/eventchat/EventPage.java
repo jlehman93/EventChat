@@ -38,9 +38,12 @@ public class EventPage extends ActionBarActivity {
         Intent i = getIntent();
         String contents = i.getStringExtra("Stuff");
         objName = contents.substring(0,contents.indexOf("\n"));
-        objDesc=contents.substring(contents.indexOf("&"));
+        contents = contents.substring(contents.indexOf("\n")+1);
+        objLoc = contents.substring(0,contents.indexOf(" - "));
+        objDesc=contents.substring(contents.indexOf("&")+1);
         Log.v("TESTEP",objName);
         Log.v("TESTEP",objDesc);
+        Log.v("TESTEP",objLoc);
         /**
         Intent i = getIntent();
         String contents = i.getStringExtra("Name");
