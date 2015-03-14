@@ -20,8 +20,11 @@ import android.widget.Toast;
 
 import com.parse.ParseObject;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
@@ -46,11 +49,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         eventListView.setAdapter(aa);
         categoryList = new ArrayList<String>(Arrays.asList("General", "Live Music", "Sports"));
 
-
-
+        /**
+        JSONArray myArray = new JSONArray();
         ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
+        myArray.put("one");
+        myArray.put("two");
+        myArray.put("three");
+        byte[] myData = { 4, 8, 16, 32 };
+        testObject.put("foo",myData);
         testObject.saveInBackground();
+         */
 
 
 
