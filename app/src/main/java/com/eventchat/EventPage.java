@@ -34,31 +34,26 @@ public class EventPage extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_page);
+        Log.v("TESTEP","in EP");
+        Intent i = getIntent();
+        String contents = i.getStringExtra("Stuff");
+        objName = contents.substring(0,contents.indexOf("\n"));
+        objDesc=contents.substring(contents.indexOf("&"));
+        Log.v("TESTEP",objName);
+        Log.v("TESTEP",objDesc);
+        /**
         Intent i = getIntent();
         String contents = i.getStringExtra("Name");
-        String name = contents.substring(0,contents.indexOf("\n"));
-        Log.v("TEST", name);
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("eventObject");
-        query.whereEqualTo("name", name); //get things from a specific category
-        query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> returnedEventList, ParseException e) {
-                if (e == null) {
-                    objName = returnedEventList.get(0).getString("name");
-                    //objLoc = returnedEventList.get(0).getString("location");
-                    objDesc = returnedEventList.get(0).getString("description");
+        Log.v("TEST",contents);
+        String description = i.getStringExtra("Description");
+        Log.v("TEST",description);
+        String objName = contents.substring(0,contents.indexOf("\n"));
+        contents = contents.substring(contents.indexOf("\n"));
+        String objLoc = contents.substring(2,contents.indexOf(" - "));
+        String objDesc = description;
+         */
+        //Log.v("TEST", name);
 
-
-                } else {
-                    Log.d("score", "Error: " + e.getMessage());
-                }
-            }
-        });
-
-        try {
-            Thread.sleep(5000);
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
         Log.v("TEST","done sleeping");
         nameView = (TextView)findViewById(R.id.name);
         //categoryView = (TextView)findViewById(R.id.categories);
@@ -66,7 +61,7 @@ public class EventPage extends ActionBarActivity {
         locationView = (TextView)findViewById(R.id.loc);
 
         nameView.setText(objName);
-        categoryView.setText(objCat);
+        //categoryView.setText(objCat);
         descriptionView.setText(objDesc);
         locationView.setText(objLoc);
 

@@ -36,6 +36,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     ListView eventListView;
     ArrayList<String> eventList;
     ArrayList<String> categoryList;
+    ArrayList<String> descList;
     ArrayAdapter<String> aa; //for events list
     final Context context = this;
     int eventInt = -1;
@@ -47,6 +48,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         eventListView = (ListView)findViewById(R.id.listItems);
         eventList = new ArrayList<String>();
+        descList = new ArrayList<String>();
         //in reality, get this stuff via web request
         ParseQuery<ParseObject> query = ParseQuery.getQuery("eventObject");
         //query.whereEqualTo("category", 0); //get things from a specific category
@@ -58,6 +60,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     {
                         Log.v("TEST",returnedEventList.get(k).getString("name"));
                         Log.v("TEST",returnedEventList.get(k).getString("location"));
+                        descList.add(returnedEventList.get(k).getString("description"));
                         eventList.add(returnedEventList.get(k).getString("name")+"\n"+returnedEventList.get(k).getString("location")+" - ");
                     }
                     //List<String> newEventList = databaseHandler.getItems();
@@ -80,7 +83,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
 
         eventList.add("Jazz Concert\nBo Diddley - 8PM");
+        descList.add("jazz description");
         eventList.add("Florida Gators\nOConnel Center - 9PM");
+        descList.add("yay gators");
         Log.v("TEST","in array");
         aa = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,eventList);
         eventListView.setAdapter(aa);
@@ -92,7 +97,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                                     long id) {
                 Log.v("TEST","a"+position);
                 Intent eventIntent = new Intent(context,EventPage.class);
-                eventIntent.putExtra("Name",eventList.get(position));
+                //Bundle extras = new Bundle();
+                //extras.putString("Name",eventList.get(position));
+                //extras.putString("Description",descList.get(position));
+                //eventIntent.putExtra("Name",eventList.get(position));
+                Log.v("TEST","trying to put");
+                eventIntent.putExtra("Stuff",eventList.get(position)+"&"+descList.get(position));
+                Log.v("TEST","putting");
+                //eventIntent.putExtras(extras);
                 startActivity(eventIntent);
 
             }
