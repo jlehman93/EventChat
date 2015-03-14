@@ -4,56 +4,56 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <EditText
+    <TextView
         android:text="Welcome to Eventchat!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:layout_marginLeft="100dp"/>
-    <EditText
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="120dp"/>
+    <TextView
         android:text="Sign Up:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="40dp"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Email Address"
         android:layout_marginLeft="135dp"
         android:layout_marginTop="180dp"
-        android:id="@+id/editText2" />
+        android:id="@+id/email" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:id="@+id/editText"
+        android:id="@+id/password"
         android:layout_marginLeft="155dp"
         android:layout_marginTop="230dp" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Display Name"
-        android:id="@+id/editText3"
+        android:hint="Name"
+        android:id="@+id/name"
         android:layout_marginTop="280dp"
-        android:layout_marginLeft="135dp"
+        android:layout_marginLeft="170dp"
         />
-    <EditText
+    <TextView
         android:text="I agree to EventChat's\nTerms and Conditions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="375dp"
         android:layout_marginLeft="30dp"/>
-    <Button
-        android:id="@+id/newEvent"
+    <Switch
+        android:id="@+id/terms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="375dp"
-        android:layout_marginLeft="250dp"
+        android:layout_marginLeft="220dp"
         android:text="YAY!"
         android:onClick="yesToTerms"/>
     <Button
-        android:id="@+id/newEvent"
+        android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="475dp"

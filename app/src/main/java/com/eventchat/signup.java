@@ -1,17 +1,36 @@
 package com.eventchat;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Switch;
+
+import com.parse.ParseObject;
 
 
 public class signup extends ActionBarActivity {
+
+    EditText email;
+    EditText password;
+    EditText name;
+    Button registerButton;
+    Switch toggleSwitch;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        registerButton=(Button)findViewById(R.id.register);
+        toggleSwitch=(Switch)findViewById(R.id.terms);
+        email =(EditText)findViewById(R.id.email);
+        password =(EditText)findViewById(R.id.password);
+        name = (EditText)findViewById(R.id.name);
     }
 
 
@@ -35,5 +54,14 @@ public class signup extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void registerUser(View view) {
+        ParseObject eventObject = new ParseObject("userObject");
+        eventObject.put("Email",email.getText().toString());
+        eventObject.put("Password",password.getText().toString());
+        eventObject.put("Name",name.getText().toString());
+        eventObject.saveInBackground();
+        Intent returnIntent = new Intent(this,MainActivity.class);
+        startActivity(returnIntent);
     }
 }
