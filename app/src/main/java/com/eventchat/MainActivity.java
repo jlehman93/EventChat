@@ -92,6 +92,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                                     long id) {
                 Log.v("TEST","a"+position);
                 Intent eventIntent = new Intent(context,EventPage.class);
+                eventIntent.putExtra("Name",eventList.get(position));
                 startActivity(eventIntent);
 
             }
