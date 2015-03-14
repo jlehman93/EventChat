@@ -18,6 +18,8 @@ import android.widget.ListView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.parse.ParseObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -43,6 +45,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         aa = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,eventList);
         eventListView.setAdapter(aa);
         categoryList = new ArrayList<String>(Arrays.asList("General", "Live Music", "Sports"));
+
+
+
+        ParseObject testObject = new ParseObject("TestObject");
+        testObject.put("foo", "bar");
+        testObject.saveInBackground();
 
 
 
