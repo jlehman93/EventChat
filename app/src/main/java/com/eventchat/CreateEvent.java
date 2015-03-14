@@ -75,6 +75,11 @@ public class CreateEvent extends ActionBarActivity implements TimePickerDialog.O
         newFragment.show(getSupportFragmentManager(),"timePicker");
     }
 
+    public void showDatePickerDialog(View v){
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         // Do something with the time chosen by the user
         Log.v("TEST", "onTimeSetActivity");
@@ -97,6 +102,7 @@ public class CreateEvent extends ActionBarActivity implements TimePickerDialog.O
         eventObject.put("description",description.getText().toString());
         eventObject.put("category",eventInt);
         eventObject.put("location",location.getText().toString());
+       // eventObject.put("time", )
         eventObject.saveInBackground();
         Intent returnIntent = new Intent(this,MainActivity.class);
         startActivity(returnIntent);

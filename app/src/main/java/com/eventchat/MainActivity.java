@@ -143,8 +143,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
 
     public void showEventCategories(View v) {
-        Intent makeIntent = new Intent(this,EventCategories.class);
-        startActivity(makeIntent);
+//        Intent makeIntent = new Intent(this,EventCategories.class);
+//        startActivity(makeIntent);
 
         //may use dialog, but may quit and use intents
     }
