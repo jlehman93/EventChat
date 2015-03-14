@@ -7,4 +7,5 @@
     <string name="title_activity_create_event">Create Event</string>
     <string name="title_activity_event_page">EventPage</string>
     <string name="title_activity_signup">signup</string>
+    <string name="title_activity_event_categories">EventCategories</string>
 </resources>
