@@ -53,7 +53,19 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             public void done(List<ParseObject> returnedEventList, ParseException e) {
                 if (e == null) {
                     Log.d("score", "Retrieved " + returnedEventList.size() + " scores");
-                    //eventList=returnedEventList;
+                    for(int k=0;k<returnedEventList.size();k++)
+                    {
+                        Log.v("TEST",returnedEventList.get(k).getString("name"));
+                        Log.v("TEST",returnedEventList.get(k).getString("location"));
+                        eventList.add(returnedEventList.get(k).getString("name")+"\n"+returnedEventList.get(k).getString("location")+" - ");
+                    }
+                    //List<String> newEventList = databaseHandler.getItems();
+                    //aa.clear();
+                    //aa.addAll(eventList);
+                    aa.notifyDataSetChanged();
+                    //aa = new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,eventList);
+                    //eventListView.setAdapter(aa);
+
                 } else {
                     Log.d("score", "Error: " + e.getMessage());
                 }
@@ -62,8 +74,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         eventList.add("Jazz Concert\nBo Diddley - 8PM");
         eventList.add("Florida Gators\nOConnel Center - 9PM");
-        aa = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,eventList);
-        eventListView.setAdapter(aa);
+        //aa = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,eventList);
+        //eventListView.setAdapter(aa);
         categoryList = new ArrayList<String>(Arrays.asList("General", "Live Music", "Sports"));
 
         eventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
