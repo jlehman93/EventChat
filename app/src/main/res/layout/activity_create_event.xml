@@ -1,24 +1,36 @@
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#D90B00">
+    <ImageView
 
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"/>
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Event Name"/>
+        android:hint="Event Name"
+        android:src="@mipmap/event_name"/>
     <Spinner
         android:id="@+id/categories"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:src="@mipmap/category"/>
     <EditText
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Event Description"/>
+        android:hint="Event Description"
+        android:src="@mipmap/description"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,19 +39,22 @@
             android:id="@+id/loc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Location"/>
+            android:hint="Location"
+            android:src="@mipmap/location"/>
         <Button
             android:id="@+id/eventTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time"
-            android:onClick="showTimePickerDialog" />
+            android:onClick="showTimePickerDialog"
+            android:src="@mipmap/time"/>
         <Button
             android:id="@+id/eventDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date"
-            android:onClick="showDatePickerDialog"/>
+            android:onClick="showDatePickerDialog"
+            android:src="@mipmap/date"/>
         </LinearLayout>
     <Button
         android:id="@+id/newEvent"
@@ -50,3 +65,7 @@
 
 
 </LinearLayout>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
