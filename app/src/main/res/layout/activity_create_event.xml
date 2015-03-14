@@ -1,52 +1,148 @@
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Event Name"/>
-    <Spinner
-        android:id="@+id/categories"
+    android:orientation="vertical"
+    android:background="#D90B00">
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/event_name_blank"
+            android:gravity="center_horizontal"
+            />
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Event Name"
+            android:gravity="center_horizontal"
+            />
+        </RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/category"
+        android:gravity="center_horizontal"
+        />
+</RelativeLayout>
+
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/description_blank"
+        android:gravity="center_horizontal"
+        />
     <EditText
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Event Description"/>
-    <LinearLayout
+        android:hint="Event Description"
+        android:gravity="center_horizontal"/>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"/>
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/location_blank"
+            android:gravity="left"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/loc"
+            android:layout_alignEnd="@+id/loc" />
         <EditText
             android:id="@+id/loc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Location"/>
-        <Button
-            android:id="@+id/eventTime"
+            android:hint="Location"
+            android:gravity="center_horizontal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/eventTime"
+                android:text="Time"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:onClick="showTimePickerDialog"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <ImageButton
+                android:id="@+id/date_picker"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/date"
+                android:onClick="showDatePickerDialog"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <ImageButton
+                android:id="@+id/general"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/create_event"
+                android:onClick="makeEvent"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/category_blank"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+        <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Time"
-            android:onClick="showTimePickerDialog" />
-        <Button
-            android:id="@+id/eventDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date"
-            android:onClick="showDatePickerDialog"/>
-        </LinearLayout>
+            android:id="@+id/categories"></Spinner>
+    </RelativeLayout>
+
     <Button
         android:id="@+id/newEvent"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CREATE EVENT"
-        android:onClick="makeEvent"/>
-
+        android:onClick="makeEvent"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
+
