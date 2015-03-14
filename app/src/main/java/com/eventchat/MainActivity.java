@@ -2,6 +2,8 @@ package com.eventchat;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -136,14 +138,18 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                                     int position, long id) {
 
                 eventInt = position;
-                Log.v("TEST",""+eventInt);
+                Log.v("TEST", "" + eventInt);
             }
         });
     }
 
 
     public void showEventCategories(View v) {
-        Log.v("TEST", "put popup here");
+        FragmentManager fm = getFragmentManager();
+        EventCategoriesFragment ecf = new EventCategoriesFragment();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.add(R.id.category_frame_container,ecf);
+        ft.commit();
 
         //may use dialog, but may quit and use intents
     }
