@@ -13,8 +13,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+
+import com.parse.ParseObject;
 
 import java.util.ArrayList;
 
@@ -24,6 +27,10 @@ public class CreateEvent extends ActionBarActivity implements TimePickerDialog.O
     Button timeButton;
     Spinner spinner;
     ArrayList<String> categoryList;
+    int eventInt = -1;
+    EditText description;
+    EditText location;
+    EditText name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent i = getIntent();
@@ -35,6 +42,9 @@ public class CreateEvent extends ActionBarActivity implements TimePickerDialog.O
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,categoryList);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        description = (EditText)findViewById(R.id.description);
+        location = (EditText)findViewById(R.id.loc);
+        name = (EditText)findViewById(R.id.name);
     }
 
 
@@ -74,6 +84,7 @@ public class CreateEvent extends ActionBarActivity implements TimePickerDialog.O
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         Log.v("TEST",""+pos);
+        eventInt = pos;
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
@@ -81,7 +92,12 @@ public class CreateEvent extends ActionBarActivity implements TimePickerDialog.O
     }
 
     public void makeEvent(View view) {
-        //do web request
+        ParseObject eventObject = new ParseObject("eventObject");
+        eventObject.put("name",name.getText().toString());
+        eventObject.put("description",description.getText().toString());
+        eventObject.put("category",eventInt);
+        eventObject.put("location",location.getText().toString());
+        eventObject.saveInBackground();
         Intent returnIntent = new Intent(this,MainActivity.class);
         startActivity(returnIntent);
     }
