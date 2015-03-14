@@ -1,4 +1,4 @@
-package mobi.meerchat.eventchat;
+package com.eventchat;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
