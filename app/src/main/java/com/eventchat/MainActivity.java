@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.parse.ParseObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -36,6 +38,9 @@ public class MainActivity extends ActionBarActivity {
         eventList.add("Florida Gators\nOConnel Center - 9PM");
         aa = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,eventList);
         eventListView.setAdapter(aa);
+        ParseObject testObject = new ParseObject("TestObject");
+        testObject.put("foo", "bar");
+        testObject.saveInBackground();
 
 
 
