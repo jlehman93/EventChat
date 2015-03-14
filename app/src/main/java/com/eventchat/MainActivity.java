@@ -39,6 +39,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     ArrayAdapter<String> aa; //for events list
     final Context context = this;
     int eventInt = -1;
+    String user = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         eventList = new ArrayList<String>();
         //in reality, get this stuff via web request
         ParseQuery<ParseObject> query = ParseQuery.getQuery("eventObject");
-        query.whereEqualTo("category", 0); //get things from a specific category
+        //query.whereEqualTo("category", 0); //get things from a specific category
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> returnedEventList, ParseException e) {
                 if (e == null) {
@@ -72,10 +73,17 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             }
         });
 
+        try{
+            Thread.sleep(3000);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
         eventList.add("Jazz Concert\nBo Diddley - 8PM");
         eventList.add("Florida Gators\nOConnel Center - 9PM");
-        //aa = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,eventList);
-        //eventListView.setAdapter(aa);
+        Log.v("TEST","in array");
+        aa = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,eventList);
+        eventListView.setAdapter(aa);
         categoryList = new ArrayList<String>(Arrays.asList("General", "Live Music", "Sports"));
 
         eventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -143,13 +151,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
 
     public void showEventCategories(View v) {
-//        Intent makeIntent = new Intent(this,EventCategories.class);
-//        startActivity(makeIntent);
+        Intent makeIntent = new Intent(this,EventCategories.class);
+        startActivity(makeIntent);
 
         //may use dialog, but may quit and use intents
     }
 
     public void makeEvent(View v) {
+        //if user does not exist
+        //Intent signupIntent = new Intent(this,signup.class);
+        //startActivity(signupIntent);
         Log.v("TEST","go to create event");
         Intent makeIntent = new Intent(this,CreateEvent.class);
         makeIntent.putStringArrayListExtra("categories",categoryList);
