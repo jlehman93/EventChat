@@ -7,8 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import com.parse.ParseObject;
 
@@ -20,6 +22,8 @@ public class signup extends ActionBarActivity {
     EditText name;
     Button registerButton;
     Switch toggleSwitch;
+    TextView switchStatus;
+
 
 
     @Override
@@ -27,12 +31,22 @@ public class signup extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         registerButton=(Button)findViewById(R.id.register);
-        toggleSwitch=(Switch)findViewById(R.id.terms);
         email =(EditText)findViewById(R.id.email);
         password =(EditText)findViewById(R.id.password);
         name = (EditText)findViewById(R.id.name);
+        switchStatus = (TextView) findViewById(R.id.switchStatus);
+        toggleSwitch = (Switch) findViewById(R.id.toggleSwitch);
     }
+    public void onCheckedChanged(CompoundButton buttonView,
+                                 boolean isChecked) {
 
+        if(isChecked){
+            switchStatus.setText("Switch is currently ON");
+        }else{
+            switchStatus.setText("Switch is currently OFF");
+        }
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,8 +72,8 @@ public class signup extends ActionBarActivity {
     public void registerUser(View view) {
         ParseObject eventObject = new ParseObject("userObject");
         eventObject.put("Email",email.getText().toString());
-        eventObject.put("Password",password.getText().toString());
-        eventObject.put("Name",name.getText().toString());
+        eventObject.put("Password", password.getText().toString());
+        eventObject.put("Name", name.getText().toString());
         eventObject.saveInBackground();
         Intent returnIntent = new Intent(this,MainActivity.class);
         startActivity(returnIntent);

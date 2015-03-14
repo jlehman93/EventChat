@@ -38,20 +38,21 @@
         android:layout_marginTop="280dp"
         android:layout_marginLeft="170dp"
         />
-    <TextView
-        android:text="I agree to EventChat's\nTerms and Conditions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="375dp"
-        android:layout_marginLeft="30dp"/>
     <Switch
-        android:id="@+id/terms"
+        android:id="@+id/toggleSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="375dp"
-        android:layout_marginLeft="220dp"
-        android:text="YAY!"
-        android:onClick="yesToTerms"/>
+        android:layout_marginLeft="100dp"/>
+        android:text="I agree to EventChat's\nTerms and Conditions" />
+    <TextView
+        android:id="@+id/switchStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toggleSwitch"
+        android:layout_marginTop="377dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
     <Button
         android:id="@+id/register"
         android:layout_width="wrap_content"
