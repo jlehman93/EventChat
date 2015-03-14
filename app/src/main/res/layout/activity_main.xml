@@ -1,39 +1,30 @@
-<FrameLayout
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/category_frame_container">
+    android:orientation="vertical">
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <ListView
+        android:id="@+id/listItems"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"></ListView>
 
+    <Button
+        android:id="@+id/EventCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EVENT CATGORIES"
+        android:onClick="showEventCategories" />
 
-        <ListView
-            android:id="@+id/listItems"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
-
-        <Button
-            android:id="@+id/EventCategories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="EVENT CATEGORIES"
-            android:onClick="showEventCategories" />
-
-        <Button
-            android:id="@+id/newEvent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CREATE EVENT"
-            android:onClick="makeEvent"/>
+    <Button
+        android:id="@+id/newEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CREATE EVENT"
+        android:onClick="makeEvent"/>
 
 
 
-    </LinearLayout>
-</FrameLayout>
-
-
+</LinearLayout>
