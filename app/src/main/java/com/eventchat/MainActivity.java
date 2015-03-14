@@ -2,6 +2,7 @@ package com.eventchat;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -13,15 +14,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TimePicker;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity  {
 
     ListView eventListView;
     ArrayList<String> eventList;
+    ArrayList<String> categoryList;
     ArrayAdapter<String> aa; //for events list
     final Context context = this;
 
@@ -36,6 +39,8 @@ public class MainActivity extends ActionBarActivity {
         eventList.add("Florida Gators\nOConnel Center - 9PM");
         aa = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,eventList);
         eventListView.setAdapter(aa);
+        categoryList = new ArrayList<>(Arrays.asList("General", "Live Music", "Sports"));
+
 
 
 
@@ -74,7 +79,10 @@ public class MainActivity extends ActionBarActivity {
     public void makeEvent(View v) {
         Log.v("TEST","go to create event");
         Intent makeIntent = new Intent(this,CreateEvent.class);
+        makeIntent.putStringArrayListExtra("categories",categoryList);
         startActivity(makeIntent);
 
     }
+
+
 }
